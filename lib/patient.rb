@@ -8,11 +8,11 @@ class Patient
   def appointments 
     Appointment.all.select{|appointment| appointment.patient == self}
   end
-  def qqs 
-    self.appointments.collect{|appointment| appointment.qq}.uniq
+  def doctors 
+    self.appointments.collect{|appointment| appointment.doctor}.uniq
   end 
-  def new_appointment(name, qq)
-    Appointment.new(name, self, qq)
+  def new_appointment(name, doctor)
+    Appointment.new(name, self, doctor)
   end
   def self.all
     @@all
