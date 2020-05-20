@@ -1,18 +1,18 @@
-class Artist
+class Doctor
   attr_reader :name
   @@all = []
   def initialize(name)
     @name = name
     @@all << self
   end
-  def songs 
-    Song.all.select{|song| song.artist == self}
+  def appointments 
+    Appointment.all.select{|appointment| appointment.doctor == self}
   end
-  def genres 
-    self.songs.collect{|song| song.genre}.uniq
+  def patients 
+    self.appointments.collect{|appointment| appointment.patient}.uniq
   end 
-  def new_song(name, genre)
-    Song.new(name, self, genre)
+  def new_appointment(name, patient)
+    Appointment.new(name, self, patient)
   end
   def self.all
     @@all
