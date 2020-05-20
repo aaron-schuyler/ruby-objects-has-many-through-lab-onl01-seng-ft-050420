@@ -12,7 +12,7 @@ class Doctor
     self.appointments.collect{|appointment| appointment.patient}.uniq
   end 
   def new_appointment(name, patient)
-    Appointment.new(name, self, patient)
+    Appointment.new(name, patient, self)
   end
   def self.all
     @@all
