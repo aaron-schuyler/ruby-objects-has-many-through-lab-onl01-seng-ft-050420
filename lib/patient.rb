@@ -11,9 +11,6 @@ class Patient
   def doctors 
     self.appointments.collect{|appointment| appointment.doctor}.uniq
   end 
-  def new_appointment(name, doctor)
-    Appointment.new(name, self, doctor)
-  end
   def self.all
     @@all
   end
